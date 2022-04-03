@@ -189,5 +189,7 @@ class SearchBookRequestFilter:
         return self
 
     def __str__(self) -> str:
-        resp = "|".join([f"{k}:{self.PARAMS[k]}" for k in self.PARAMS.keys()])  # type: ignore
+        resp = "|".join(
+            [f"{k}:{self.PARAMS[k]}" for k in self.PARAMS.keys()]  # type: ignore
+        )
         return resp

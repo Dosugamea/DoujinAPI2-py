@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-from src.book.parser import parseBooks
+from src.book.parser import parseBookAsFilename, parseBooks
 from src.book.request import SearchBookRequest, SearchBookRequestFilter
 from src.book.response import Book
 from src.utils.session import Session
@@ -60,3 +60,6 @@ class SearchBookMethods(Session):
             files = {"img": f.read()}
         resp = await self.postImage(files)
         return parseBooks(resp)
+
+    def parseBookAsFilename(self, book: Book) -> str:
+        return parseBookAsFilename(book)

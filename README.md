@@ -109,6 +109,14 @@ print(book)
     isbn=None,
     language=<Language.JAPANESE: 3>
 )]
+
+# And you can parse the book as filename
+filename = client.parseBookAsFilename(books[0])
+print(filename)
+
+# And you'll see below
+(C89) [こねこぼたん (彩電)] 魔法少女は深淵になにをみるか? (ご注文はうさぎですか?)
+
 ```
 
 ## Note

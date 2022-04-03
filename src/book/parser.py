@@ -28,6 +28,7 @@ def parseBookAsFilename(book: Book) -> str:
     event_dict = {
         "コミックマーケット ": "C",
         "サンシャインクリエイション ": "サンクリ",
+        "こみっく☆トレジャー ": "こみトレ",
     }
     event = book.event.name_jp
     for k, v in event_dict.items():

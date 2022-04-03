@@ -4,7 +4,6 @@ import tempfile
 import pytest
 from httpx import AsyncClient
 from src.api import DoujinApi
-from src.book.parser import parseBookAsFilename
 
 
 @pytest.mark.asyncio
@@ -24,7 +23,7 @@ async def test_search_book_and_get_filename_event_comiket(
     Test the parseBookAsFilename method of the DoujinApi class.
     """
     resp = await client.searchBookByName("魔法少女は深淵になにをみるか?")
-    filename = parseBookAsFilename(resp[0])
+    filename = client.parseBookAsFilename(resp[0])
     assert filename == "(C89) [こねこぼたん (彩電)] 魔法少女は深淵になにをみるか? (ご注文はうさぎですか?)"
 
 
@@ -36,7 +35,7 @@ async def test_search_book_and_get_filename_event_comic_one(
     Test the parseBookAsFilename method of the DoujinApi class.
     """
     resp = await client.searchBookByName("ふたりとも、わたしの妹です!")
-    filename = parseBookAsFilename(resp[0])
+    filename = client.parseBookAsFilename(resp[0])
     assert filename == "(COMIC1☆17) [こねこぼたん (彩電)] ふたりとも、わたしの妹です! (ご注文はうさぎですか?)"
 
 
@@ -48,7 +47,7 @@ async def test_search_book_and_get_filename_event_unknown(
     Test the parseBookAsFilename method of the DoujinApi class.
     """
     resp = await client.searchBookByName("悪戯ぎつねと真っ白わんこ")
-    filename = parseBookAsFilename(resp[0])
+    filename = client.parseBookAsFilename(resp[0])
     assert filename == "[こねこぼたん (彩電, たそがれ, 天風悠)] 悪戯ぎつねと真っ白わんこ (うらら迷路帖)"
 
 
