@@ -32,9 +32,10 @@ def parseSimilarity(similarity: Optional[str]) -> Optional[float]:
 def parseBook(elem: etree.Element) -> Book:
     tags = findAndCastElementArray(elem, "LINKS")
     id = int(elem.attrib["ID"][1:])
+    similarity = elem.attrib["search"] if "search" in elem.attrib else None
     return Book(
         id=elem.attrib["ID"],
-        similarity=parseSimilarity(elem.attrib["search"]),
+        similarity=parseSimilarity(similarity),
         name_jp=findAndCastStr(elem, "NAME_JP"),
         name_en=findAndCastOptionalStr(elem, "NAME_EN"),
         name_r=findAndCastOptionalStr(elem, "NAME_R"),
