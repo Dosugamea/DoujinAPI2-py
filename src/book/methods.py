@@ -54,3 +54,9 @@ class SearchBookMethods(Session):
     async def searchBookByTag(self, title: str, page: int = 1) -> List[Book]:
         filter = SearchBookRequestFilter().tag(title)
         return await self.__search(None, filter, page)
+
+    async def searchBookByImage(self, file_path: str) -> List[Book]:
+        with open(file_path, "rb") as f:
+            files = {"img": f.read()}
+        resp = await self.postImage(files)
+        return parseBooks(resp)

@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as etree
-from typing import Union
+from typing import Dict, Union
 
 from httpx import AsyncClient
 from src.book.request import SearchBookRequest
@@ -21,6 +21,20 @@ class Session(object):
             params_dict: dict = params  # type: ignore
             resp = await client.get(
                 f"{self.ENDPOINT}/{self.API_KEY}/", params=params_dict
+            )
+            tree = etree.fromstring(resp.text.encode("utf-8"))
+            for child in tree:
+                if child.tag == "ERROR":
+                    if child.attrib["code"] == "1":
+                        raise UnauthorizedException("Wrong API Key")
+            return tree
+
+    async def postImage(self, files: Dict[str, bytes]) -> etree.Element:
+        async with AsyncClient() as client:
+            resp = await client.post(
+                f"{self.ENDPOINT}/{self.API_KEY}/",
+                params={"S": "imageSearch"},
+                files=files,
             )
             tree = etree.fromstring(resp.text.encode("utf-8"))
             for child in tree:

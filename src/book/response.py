@@ -28,3 +28,4 @@ class Book:
     magazine: bool
     isbn: Optional[int]
     language: Language
+    similarity: Optional[float]

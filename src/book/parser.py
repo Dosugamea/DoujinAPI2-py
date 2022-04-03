@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as etree
-from typing import List
+from typing import List, Optional
 
 from src.book.response import Book
 from src.typings.cast import (
@@ -23,11 +23,18 @@ from src.utils.parser import (
 )
 
 
+def parseSimilarity(similarity: Optional[str]) -> Optional[float]:
+    if similarity is None:
+        return None
+    return float(similarity.replace("%", "").replace(",", "."))
+
+
 def parseBook(elem: etree.Element) -> Book:
     tags = findAndCastElementArray(elem, "LINKS")
     id = int(elem.attrib["ID"][1:])
     return Book(
         id=elem.attrib["ID"],
+        similarity=parseSimilarity(elem.attrib["search"]),
         name_jp=findAndCastStr(elem, "NAME_JP"),
         name_en=findAndCastOptionalStr(elem, "NAME_EN"),
         name_r=findAndCastOptionalStr(elem, "NAME_R"),

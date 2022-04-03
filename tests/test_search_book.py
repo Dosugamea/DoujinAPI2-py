@@ -1,4 +1,7 @@
 import pytest
+import os
+from httpx import AsyncClient
+import tempfile
 from src.api import DoujinApi
 
 
@@ -53,4 +56,21 @@ async def test_search_book_by_tag(client: DoujinApi) -> None:
     Test the searchBookByTag method of the DoujinApi class.
     """
     resp = await client.searchBookByTag("ロリ")
+    assert len(resp) > 1
+
+
+@pytest.mark.asyncio
+async def test_search_book_by_image(client: DoujinApi) -> None:
+    """
+    Test the searchBookByImage method of the DoujinApi class.
+    """
+    fp = tempfile.NamedTemporaryFile(delete=False)
+    async with AsyncClient() as http:
+        img = await http.get("https://img.doujinshi.org/big/434/868487.jpg")
+        fp.write(img.content)
+        fp.seek(0)
+    resp = await client.searchBookByImage(fp.name)
+    fp.close()
+    os.unlink(fp.name)
+    print(resp)
     assert len(resp) > 1
