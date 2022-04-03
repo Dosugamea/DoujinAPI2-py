@@ -23,6 +23,28 @@ from src.utils.parser import (
 )
 
 
+def parseBookAsFilename(book: Book) -> str:
+    """parse book response model as common filename"""
+    event_dict = {
+        "コミックマーケット ": "C",
+        "サンシャインクリエイション ": "サンクリ",
+    }
+    event = book.event.name_jp
+    for k, v in event_dict.items():
+        event = event.replace(k, v)
+    circle = book.circles[0].name_jp
+    authors = ", ".join([a.name_jp for a in book.authors])
+    title = book.name_jp
+    parody = book.parodies[0].name_jp
+    parody = "" if parody == "不詳" else parody
+    event = "" if event == "不詳" else event
+    if not event and not parody:
+        return f"[{circle} ({authors})] {title}"
+    if not event:
+        return f"[{circle} ({authors})] {title} ({parody})"
+    return f"({event}) [{circle} ({authors})] {title} ({parody})"
+
+
 def parseSimilarity(similarity: Optional[str]) -> Optional[float]:
     if similarity is None:
         return None
