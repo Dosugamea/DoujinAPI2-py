@@ -1,7 +1,8 @@
-import pytest
 import os
-from httpx import AsyncClient
 import tempfile
+
+import pytest
+from httpx import AsyncClient
 from src.api import DoujinApi
 
 
@@ -72,5 +73,4 @@ async def test_search_book_by_image(client: DoujinApi) -> None:
     resp = await client.searchBookByImage(fp.name)
     fp.close()
     os.unlink(fp.name)
-    print(resp)
     assert len(resp) > 1
