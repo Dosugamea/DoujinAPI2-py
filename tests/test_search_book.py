@@ -3,7 +3,7 @@ import tempfile
 
 import pytest
 from httpx import AsyncClient
-from src.api import DoujinApi
+from doujinApi.api import DoujinApi
 
 
 @pytest.mark.asyncio

@@ -1,9 +1,9 @@
 from typing import List, Optional
 
-from src.book.parser import parseBookAsFilename, parseBooks
-from src.book.request import SearchBookRequest, SearchBookRequestFilter
-from src.book.response import Book
-from src.utils.session import Session
+from doujinApi.book.parser import parseBookAsFilename, parseBooks
+from doujinApi.book.request import SearchBookRequest, SearchBookRequestFilter
+from doujinApi.book.response import Book
+from doujinApi.utils.session import Session
 
 
 class SearchBookMethods(Session):

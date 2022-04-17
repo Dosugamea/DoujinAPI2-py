@@ -2,9 +2,9 @@ import xml.etree.ElementTree as etree
 from typing import Dict, Union
 
 from httpx import AsyncClient
-from src.book.request import SearchBookRequest
-from src.item.request import SearchItemRequest
-from src.utils.exception import UnauthorizedException
+from doujinApi.book.request import SearchBookRequest
+from doujinApi.item.request import SearchItemRequest
+from doujinApi.utils.exception import UnauthorizedException
 
 
 class Session(object):

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Literal, TypedDict
 
-from src.typings.constants import Code
+from doujinApi.typings.constants import Code
 
 
 class SearchBookRequest(TypedDict, total=False):

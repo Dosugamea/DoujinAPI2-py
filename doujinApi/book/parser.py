@@ -1,8 +1,8 @@
 import xml.etree.ElementTree as etree
 from typing import List, Optional
 
-from src.book.response import Book
-from src.typings.cast import (
+from doujinApi.book.response import Book
+from doujinApi.typings.cast import (
     findAndCastBool,
     findAndCastDate,
     findAndCastElementArray,
@@ -12,7 +12,7 @@ from src.typings.cast import (
     findAndCastOptionalStr,
     findAndCastStr,
 )
-from src.utils.parser import (
+from doujinApi.utils.parser import (
     filteredTags,
     parseAuthor,
     parseCharacter,

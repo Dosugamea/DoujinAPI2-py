@@ -2,8 +2,8 @@ from dataclasses import dataclass
 from datetime import date
 from typing import List, Optional
 
-from src.typings.constants import Language
-from src.typings.tag import Author, Character, Circle, Content, Convention, Parody
+from doujinApi.typings.constants import Language
+from doujinApi.typings.tag import Author, Character, Circle, Content, Convention, Parody
 
 
 @dataclass

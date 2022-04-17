@@ -1,5 +1,5 @@
-from src.book.methods import SearchBookMethods
-from src.item.methods import SearchItemMethods
+from doujinApi.book.methods import SearchBookMethods
+from doujinApi.item.methods import SearchItemMethods
 
 
 class DoujinApi(SearchItemMethods, SearchBookMethods):

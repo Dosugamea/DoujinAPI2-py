@@ -2,7 +2,7 @@ import xml.etree.ElementTree as etree
 from datetime import date, datetime
 from typing import List, Optional, cast
 
-from src.typings.constants import Language, Sex
+from doujinApi.typings.constants import Language, Sex
 
 
 def findAndCastOptionalStr(elem: etree.Element, tag: str) -> Optional[str]:

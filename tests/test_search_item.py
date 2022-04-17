@@ -1,5 +1,5 @@
 import pytest
-from src.api import DoujinApi
+from doujinApi.api import DoujinApi
 
 
 @pytest.mark.asyncio

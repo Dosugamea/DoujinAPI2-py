@@ -1,8 +1,8 @@
 import xml.etree.ElementTree as etree
 from typing import List
 
-from src.typings.tag import Author, Character, Circle, Content, Convention, Parody
-from src.utils.parser import (
+from doujinApi.typings.tag import Author, Character, Circle, Content, Convention, Parody
+from doujinApi.utils.parser import (
     parseAuthor,
     parseCharacter,
     parseCircle,

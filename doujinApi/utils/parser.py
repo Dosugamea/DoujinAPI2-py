@@ -1,14 +1,14 @@
 import xml.etree.ElementTree as etree
 from typing import List, Optional
 
-from src.typings.cast import (
+from doujinApi.typings.cast import (
     findAndCastDate,
     findAndCastInt,
     findAndCastOptionalSex,
     findAndCastOptionalStr,
     findAndCastStr,
 )
-from src.typings.tag import Author, Character, Circle, Content, Convention, Parody
+from doujinApi.typings.tag import Author, Character, Circle, Content, Convention, Parody
 
 
 def filteredTags(tags: List[etree.Element], key: str) -> List[etree.Element]:

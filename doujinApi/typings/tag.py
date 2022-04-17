@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from datetime import date
 from typing import List, Optional
 
-from src.typings.constants import Sex
+from doujinApi.typings.constants import Sex
 
 
 @dataclass

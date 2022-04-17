@@ -2,7 +2,7 @@ from dataclasses import dataclass, field
 from typing import Any, List, Optional, Union
 
 from dataclasses_json import config, dataclass_json
-from src.typings.constants import Language
+from doujinApi.typings.constants import Language
 
 """
 This file is work-in-progress for using dataclasses to parse XML response

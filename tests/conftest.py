@@ -6,7 +6,7 @@ from typing import Generator
 
 import pytest_asyncio
 from dotenv import load_dotenv
-from src.api import DoujinApi
+from doujinApi.api import DoujinApi
 
 load_dotenv(verbose=True)
 dotenv_path = join(dirname(__file__), ".env")

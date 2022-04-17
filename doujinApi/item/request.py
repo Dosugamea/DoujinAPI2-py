@@ -3,7 +3,7 @@ from __future__ import annotations
 import datetime
 from typing import Literal, TypedDict
 
-from src.item.constants import ItemTypes, SortOrders, SortTypes
+from doujinApi.item.constants import ItemTypes, SortOrders, SortTypes
 
 
 class SearchItemRequest(TypedDict, total=False):

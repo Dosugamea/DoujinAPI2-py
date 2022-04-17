@@ -1,16 +1,16 @@
 from typing import List
 
-from src.item.constants import ItemType, SortOrder, SortOrders, SortType, SortTypes
-from src.item.parser import (
+from doujinApi.item.constants import ItemType, SortOrder, SortOrders, SortType, SortTypes
+from doujinApi.item.parser import (
     parseAuthors,
     parseCharacters,
     parseCircles,
     parseContents,
     parseParodies,
 )
-from src.item.request import SearchItemRequest
-from src.typings.tag import Author, Character, Circle, Content, Parody
-from src.utils.session import Session
+from doujinApi.item.request import SearchItemRequest
+from doujinApi.typings.tag import Author, Character, Circle, Content, Parody
+from doujinApi.utils.session import Session
 
 
 class SearchItemMethods(Session):
