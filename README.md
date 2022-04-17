@@ -122,6 +122,10 @@ print(filename)
 # And you'll see below
 (C89) [こねこぼたん (彩電)] 魔法少女は深淵になにをみるか? (ご注文はうさぎですか?)
 
+# Also you can search book by image
+async def main2():
+    resp = await client.searchBookByImage("RELATIVE_PATH_TO_IMAGE")
+    return resp
 ```
 
 ## Note
