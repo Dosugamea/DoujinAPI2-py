@@ -13,13 +13,18 @@
 ```
 
 ```python
-from doujinapi import DoujinApi
+import asyncio
+from doujinApi import DoujinApi
 
 # You can get api key from doujinshi.org easily.
 client = DoujinApi("INPUT_YOUR_API_KEY")
 
-book = await client.searchBookByName("魔法少女は深淵になにをみるか?")
-print(book)
+async def main():
+    searchResult = await client.searchBookByName("魔法少女は深淵になにをみるか?")
+    return searchResult
+
+books = asyncio.run(main())
+print(books)
 
 # And you'll get below
 [Book(
