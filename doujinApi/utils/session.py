@@ -1,10 +1,10 @@
 import xml.etree.ElementTree as etree
 from typing import Dict, Union
 
-from httpx import AsyncClient
 from doujinApi.book.request import SearchBookRequest
 from doujinApi.item.request import SearchItemRequest
 from doujinApi.utils.exception import UnauthorizedException
+from httpx import AsyncClient
 
 
 class Session(object):

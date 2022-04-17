@@ -1,6 +1,12 @@
 from typing import List
 
-from doujinApi.item.constants import ItemType, SortOrder, SortOrders, SortType, SortTypes
+from doujinApi.item.constants import (
+    ItemType,
+    SortOrder,
+    SortOrders,
+    SortType,
+    SortTypes,
+)
 from doujinApi.item.parser import (
     parseAuthors,
     parseCharacters,

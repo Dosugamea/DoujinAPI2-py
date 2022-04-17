@@ -2,8 +2,8 @@ import os
 import tempfile
 
 import pytest
-from httpx import AsyncClient
 from doujinApi.api import DoujinApi
+from httpx import AsyncClient
 
 
 @pytest.mark.asyncio
