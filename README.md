@@ -9,7 +9,9 @@
 
 ## Usage
 ```bash
-(TODO: publish on pypi)
+pip install doujinapi
+or
+poetry add doujinapi
 ```
 
 ```python
