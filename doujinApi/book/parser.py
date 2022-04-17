@@ -26,11 +26,11 @@ from doujinApi.utils.parser import (
 def parseBookAsFilename(book: Book) -> str:
     """parse book response model as common filename"""
     event_dict = {
-        "コミックマーケット ": "C",
-        "サンシャインクリエイション ": "サンクリ",
-        "こみっく☆トレジャー ": "こみトレ",
+        "コミックマーケット": "C",
+        "サンシャインクリエイション": "サンクリ",
+        "こみっく☆トレジャー": "こみトレ",
     }
-    event = book.event.name_jp
+    event = book.event.name_jp.replace(" ", "")
     for k, v in event_dict.items():
         event = event.replace(k, v)
     circle = book.circles[0].name_jp
